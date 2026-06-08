@@ -1,24 +1,28 @@
-# CURL Commands
+# CURL Commands Documentation
 
-## GET Semua Transaksi
+Repository ini menggunakan Postman sebagai tools utama pengujian REST API. Berikut adalah contoh implementasi request menggunakan CURL yang setara dengan request pada Postman.
 
----
+## GET Daftar Transaksi
 
-# 3. requests/postman-collection.json
-
-Export collection Postman yang kamu gunakan:
-
-1. Buka Postman
-2. Klik Collection
-3. Klik titik tiga (...)
-4. Export
-5. Pilih Collection v2.1
-6. Simpan sebagai
-
-```text
-postman-collection.json
+```bash
 curl -X GET http://localhost:8088/api/transactions
+```
+
+Fungsi:
+Mengambil seluruh data transaksi dari server.
+
+## GET Detail Transaksi
+
+```bash
 curl -X GET http://localhost:8088/api/transactions/1
+```
+
+Fungsi:
+Mengambil detail transaksi berdasarkan ID transaksi.
+
+## POST Menambah Transaksi
+
+```bash
 curl -X POST http://localhost:8088/api/transactions \
 -H "Content-Type: application/json" \
 -d '{
@@ -27,3 +31,7 @@ curl -X POST http://localhost:8088/api/transactions \
   "amount":150000,
   "status":"PAID"
 }'
+```
+
+Fungsi:
+Menambahkan data transaksi baru ke server menggunakan format JSON.
